@@ -23,7 +23,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY="django-insecure-xnu)mczb4x=gb=+ji64tv@vp8fj4iwu+nb5c8(a^udn0_10qtg"
 GUARDIAN_BASE_URL = os.environ.get("GUARDIAN_BASE_URL")
 GUARDIAN_API_KEY = os.environ.get("GUARDIAN_API_KEY")
 NYT_BASE_URL = os.environ.get("NYT_BASE_URL")
@@ -34,10 +34,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    'graphene_django',
     'news.apps.NewsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+GRAPHENE = {
+    "SCHEMA": "news.schema.schema"
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
